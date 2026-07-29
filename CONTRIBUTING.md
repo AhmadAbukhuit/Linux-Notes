@@ -6,14 +6,15 @@ Whether you are fixing a typo, adding a new configuration guide for WSL 2, or sh
 
 ## 📋 Table of Contents
 
-* [How Can I Contribute?](#how-can-i-contribute)
-* [Submission Workflow](#submission-workflow)
-* [Style Guide & Formatting](#style-guide--formatting)
-* [Code of Conduct](#code-of-conduct)
+* [How Can I Contribute?](#️-how-can-i-contribute)
+* [Submission Workflow](#-submission-workflow)
+* [Style Guide & Formatting](#-style-guide--formatting)
+* [Keeping Your Fork Synced](#-keeping-your-fork-synced)
+* [Code of Conduct](#-code-of-conduct)
 
 ---
 
-## 🛠️ How Can I Contribute?
+## 🛠️ How Can I Contribute? 
 
 There are several ways you can contribute to this project:
 
@@ -87,6 +88,29 @@ To keep the repository clean and easily scannable, please adhere to the followin
 5. **Categorization**
     
     Place your note in the most relevant folder inside docs/. If you are adding a guide on configuring Zsh plugins like Oh My Zsh, it belongs in docs/05-terminal/. If you are unsure where a file belongs, just place it in the root of docs/, and it can be moved during the PR review.
+
+## 🔄 Keeping Your Fork Synced
+
+Before creating a new branch or opening a pull request, please ensure your fork is up to date with the original repository to avoid merge conflicts.
+
+**1. Add the upstream repository** (You only need to do this once):
+```bash
+git remote add upstream [https://github.com/AhmadAbukhuit/linux-notes.git](https://github.com/AhmadAbukhuit/linux-notes.git)
+```
+**2.Fetch and merge the latest updates:**
+```bash
+# Download the latest changes from the original repo
+git fetch upstream
+
+# Ensure you are on your local main branch
+git checkout main
+
+# Merge the updates into your local main branch
+git merge upstream/main
+
+# Push the synced changes up to your GitHub fork
+git push origin main
+``` 
 
 ## 🤝 Code of Conduct
 

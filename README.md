@@ -6,9 +6,9 @@ Whether you are configuring a fresh Debian server, optimizing a WSL 2 developmen
 
 ## 📂 Contents
 
-* **[Core Commands](./docs/01-core-commands/)**: File system navigation, process management, and user permissions.
-* **[Environments](./docs/02-environments/)**: Setup guides for Debian, Ubuntu, and WSL 2.
-* **[Networking](./docs/03-networking/)**: SSH tunneling, firewall configurations, and port management.
+* **[Overview](./docs/01-overview/)**: Introduction about linux and files.
+* **[Core Commands](./docs/02-core-commands/)**: File system navigation, process management, and user permissions.
+* **[Environments](./docs/03-environments/)**: Setup guides for Debian, Ubuntu, and WSL 2.
 * **[Tools & Infrastructure](./docs/04-tools/)**: Cheat sheets for Docker, Git LFS, and database management.
 * **[Terminal & Dotfiles](./docs/05-terminal/)**: Neovim setups, Zsh aliases, and Oh My Zsh configurations.
 
