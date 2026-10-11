@@ -6,15 +6,16 @@ In Linux, security and access control are built directly into the filesystem. Wh
 
 ## Understanding the Permission String
 
-When you list files using `ls -l` in your terminal, you will see a 10-character string (e.g., `-rwxr-xr-x` or `drw-r--r--`). 
+When you list files using `ls -l` in your terminal, you will see a 10-character string (e.g., `-rwxr-xr-x` or `drw-r--r--`).
 
 The first character indicates the file type (`-` for normal file, `d` for directory). The remaining nine characters represent the permissions, broken down into three distinct sets of three characters:
 
-1.  **User (u):** The owner of the file.
-2.  **Group (g):** The user group assigned to the file.
-3.  **Other (o):** Everyone else on the system (public access).
+1. **User (u):** The owner of the file.
+2. **Group (g):** The user group assigned to the file.
+3. **Other (o):** Everyone else on the system (public access).
 
 ### The Core Permissions
+
 The rights granted to each of the three categories are represented by three letters: **r**, **w**, and **x**. Their behavior changes slightly depending on whether they are applied to a file or a directory.
 
 | Symbol | Name | Value | Effect on a File | Effect on a Directory |
@@ -36,11 +37,13 @@ The `chmod` (Change Mode) command is used to modify these access rights. There a
 ---
 
 ### Method 1: Symbolic Mode
-Symbolic mode is highly flexible and is best used when you want to add or remove a specific permission without altering the existing rights. 
+
+Symbolic mode is highly flexible and is best used when you want to add or remove a specific permission without altering the existing rights.
 
 It follows a strict formula: `[Category] [Operation] [Permission]`
 
 **1. Category (Who are you targeting?)**
+
 | Symbol | Name | Description |
 | :--- | :--- | :--- |
 | **`u`** | User | The specific user who owns the file. |
@@ -49,6 +52,7 @@ It follows a strict formula: `[Category] [Operation] [Permission]`
 | **`a`** | All | Applies the change to `u`, `g`, and `o` simultaneously. |
 
 **2. Operation (What action are you taking?)**
+
 | Symbol | Action | Description |
 | :--- | :--- | :--- |
 | **`+`** | Add | Grants the permission. Existing permissions remain intact. |
@@ -59,19 +63,22 @@ It follows a strict formula: `[Category] [Operation] [Permission]`
 Use `r` (read), `w` (write), or `x` (execute).
 
 **Symbolic Mode Examples:**
-*   `chmod u+x deploy_script.zsh`: Grants the **User** the right to **Execute** the file.
-*   `chmod g-w config.txt`: Revokes **Write** access from the **Group**.
-*   `chmod a+r public_doc.pdf`: Grants **Read** access to **All** users.
-*   `chmod o-wx private_folder`: Revokes both **Write and Execute** access from **Others**.
+
+* `chmod u+x deploy_script.zsh`: Grants the **User** the right to **Execute** the file.
+* `chmod g-w config.txt`: Revokes **Write** access from the **Group**.
+* `chmod a+r public_doc.pdf`: Grants **Read** access to **All** users.
+* `chmod o-wx private_folder`: Revokes both **Write and Execute** access from **Others**.
 
 ---
 
 ### Method 2: Octal (Numeric) Mode
+
 Octal mode is the absolute method. It uses a three-digit number to define the exact permissions for the User, Group, and Other simultaneously. It is faster than symbolic mode but completely overwrites the previous permissions.
 
 Each digit is calculated by adding the numeric values of the desired permissions: **Read (4) + Write (2) + Execute (1)**.
 
 **Permission Values Breakdown:**
+
 | Octal Value | Binary | Symbolic | Granted Permissions |
 | :--- | :--- | :--- | :--- |
 | **0** | 000 | `---` | No permissions |
@@ -84,18 +91,19 @@ Each digit is calculated by adding the numeric values of the desired permissions
 | **7** | 111 | `rwx` | Read, Write, and Execute (4 + 2 + 1) |
 
 **Octal Mode Examples:**
-*   `chmod 755 deploy_script.zsh`:
-    *   User gets `7` (rwx): Read, Write, Execute.
-    *   Group gets `5` (r-x): Read, Execute.
-    *   Other gets `5` (r-x): Read, Execute.
-    *   *Standard for executable scripts and directories.*
-*   `chmod 644 config.txt`: 
-    *   User gets `6` (rw-): Read, Write.
-    *   Group gets `4` (r--): Read only.
-    *   Other gets `4` (r--): Read only.
-    *   *Standard for regular text files and documents.*
-*   `chmod 700 private_keys`:
-    *   User gets `7` (rwx): Full access.
-    *   Group gets `0` (---): No access.
-    *   Other gets `0` (---): No access.
-    *   *Standard for highly sensitive files like Ed25519 SSH keys.*
+
+* `chmod 755 deploy_script.zsh`:
+    * User gets `7` (rwx): Read, Write, Execute.
+    * Group gets `5` (r-x): Read, Execute.
+    * Other gets `5` (r-x): Read, Execute.
+    * *Standard for executable scripts and directories.*
+* `chmod 644 config.txt`:
+    * User gets `6` (rw-): Read, Write.
+    * Group gets `4` (r--): Read only.
+    * Other gets `4` (r--): Read only.
+    * *Standard for regular text files and documents.*
+* `chmod 700 private_keys`:*
+    * User gets `7` (rwx): Full access.
+    * Group gets `0` (---): No access.
+    * Other gets `0` (---): No access.
+    * *Standard for highly sensitive files like Ed25519 SSH keys.*

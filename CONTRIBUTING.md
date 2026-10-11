@@ -43,7 +43,7 @@ To submit a contribution, please follow the standard GitHub Pull Request (PR) wo
     git checkout -b add-git-lfs-guide
     ```
 
-4. **Make Your Changes:** Add or edit the Markdown files in the appropriate directory (e.g., docs/04-tools/).
+4. **Make Your Changes:** Add or edit the Markdown files in the appropriate directory (e.g., `04-tools_and_infrastructure/`).
 5. **Commit Your Changes:** Write a clear, concise commit message.
 
     ```bash
@@ -86,7 +86,7 @@ To keep the repository clean and easily scannable, please adhere to the followin
     * Bad: Run chown -R user:group /var/www.
 
 5. **Categorization**
-    Place your note in the most relevant folder inside `docs/`. If you are adding a guide on configuring Zsh plugins like Oh My Zsh, it belongs in `docs/05-terminal/`. If you are unsure where a file belongs, just place it in the root of `docs/`, and it can be moved during the PR review.
+    Place your note in the most relevant top-level folder (e.g., `01-overview/`, `02-core-commands/`, `03-environments/`, `04-tools_and_infrastructure/`, or `05-terminal/`). If you are unsure where a file belongs, open an issue or place it in the most closely related folder, and it can be refined during the PR review.
 
 ## 🔄 Keeping Your Fork Synced
 
